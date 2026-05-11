@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Disallow admin / auth subdomains (handled separately)
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://tappin.no/sitemap.xml
+
+# Common AI crawlers — allowed (Tappin wants AI visibility for Norwegian event queries)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /

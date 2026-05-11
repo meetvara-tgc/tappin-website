@@ -1,0 +1,21 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Build & deploy
+node_modules/
+.vercel/
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Claude session local files
+.claude/

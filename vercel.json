@@ -1,0 +1,31 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ],
+  "redirects": [
+    { "source": "/om-tappin", "destination": "/about", "permanent": true },
+    { "source": "/om-tappin/kontakt-oss", "destination": "/contact", "permanent": true },
+    { "source": "/fysisk-event", "destination": "/physical-event", "permanent": true },
+    { "source": "/event-access-infrastructure", "destination": "/event-access", "permanent": true },
+    { "source": "/event-app-platform", "destination": "/event-app", "permanent": true },
+    { "source": "/personvernerklaering", "destination": "/privacy", "permanent": true },
+    { "source": "/gdpr-informasjon", "destination": "/gdpr", "permanent": true },
+    { "source": "/databehandleravtale", "destination": "/data-processing", "permanent": true }
+  ]
+}
