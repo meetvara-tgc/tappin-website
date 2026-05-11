@@ -557,6 +557,13 @@ ul { list-style: none; padding: 0; margin: 0; }
   grid-template-columns: 130px 1fr;
   min-height: 380px;
 }
+/* Real product screenshot inside the window chrome */
+.mock-screenshot {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #fff;
+}
 .mock-side {
   background: #FAFBFD;
   padding: 14px 10px;
