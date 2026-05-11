@@ -250,6 +250,50 @@
   counters.forEach(el => counterIo.observe(el));
 
   // --------------------------------------------
+  // Stagger index — children of grids fade in one after another
+  // --------------------------------------------
+  const staggerParents = $$('.pain-grid, .value-grid, .team-grid, .stories-grid, .testimonial-grid, .outcomes-stats');
+  staggerParents.forEach(parent => {
+    Array.from(parent.children).forEach((child, i) => {
+      child.style.setProperty('--reveal-i', i);
+    });
+  });
+
+  // --------------------------------------------
+  // Scroll progress bar
+  // --------------------------------------------
+  const progressEl = document.querySelector('.scroll-progress > span');
+  if (progressEl) {
+    let ticking = false;
+    const updateProgress = () => {
+      const h = document.documentElement;
+      const scrollTop = h.scrollTop || document.body.scrollTop;
+      const total = h.scrollHeight - h.clientHeight;
+      const pct = total > 0 ? (scrollTop / total) * 100 : 0;
+      progressEl.style.width = pct + '%';
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(updateProgress); ticking = true; }
+    }, { passive: true });
+    updateProgress();
+  }
+
+  // --------------------------------------------
+  // Card halo — radial highlight follows cursor
+  // --------------------------------------------
+  const haloCards = $$('.pain-card, .value-card, .testimonial:not(.t-feature), .story-card, .team-card');
+  haloCards.forEach(card => {
+    card.addEventListener('pointermove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      card.style.setProperty('--mx', x + '%');
+      card.style.setProperty('--my', y + '%');
+    });
+  });
+
+  // --------------------------------------------
   // Smooth-scroll offset for sticky nav
   // --------------------------------------------
   $$('a[href^="#"]').forEach(link => {

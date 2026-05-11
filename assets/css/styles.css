@@ -2400,10 +2400,186 @@ ul { list-style: none; padding: 0; margin: 0; }
   opacity: 0;
   transform: translateY(28px);
   transition: opacity .8s var(--ease), transform .8s var(--ease);
+  transition-delay: calc(var(--reveal-i, 0) * 80ms);
 }
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ============================================
+   MOTION LAYER (site-wide, calm + on-brand)
+   Honors prefers-reduced-motion at the bottom.
+   ============================================ */
+
+/* Body enter fade — quick page-load polish */
+body { animation: page-enter .6s var(--ease) both; }
+@keyframes page-enter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Hero blobs slow drift */
+.hero-blob-1 { animation: blob-drift-a 22s ease-in-out infinite; }
+.hero-blob-2 { animation: blob-drift-b 28s ease-in-out infinite; }
+@keyframes blob-drift-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(40px, -28px) scale(1.06); }
+  66%      { transform: translate(-26px, 32px) scale(0.94); }
+}
+@keyframes blob-drift-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-36px, 22px) scale(1.08); }
+}
+
+/* Gradient text continuous shimmer */
+.text-grad {
+  background-size: 200% auto;
+  animation: text-shimmer 9s ease-in-out infinite;
+}
+@keyframes text-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+/* Hero product screenshot gentle float (subtle) */
+.hero-visual .mock-window {
+  animation: hero-mock-float 9s ease-in-out infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+@keyframes hero-mock-float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50%      { transform: translateY(-10px) rotate(0.2deg); }
+}
+.hero-visual .mock-window img.mock-screenshot {
+  transition: transform .6s var(--ease);
+}
+.hero-visual:hover .mock-window img.mock-screenshot { transform: scale(1.015); }
+
+/* Cards gain a soft halo on hover (works on top of existing transitions) */
+.pain-card,
+.value-card,
+.testimonial,
+.story-card,
+.team-card,
+.outcome {
+  will-change: transform;
+}
+.pain-card::after,
+.value-card::after,
+.testimonial:not(.t-feature)::after,
+.story-card::after,
+.team-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(0, 204, 194, 0.12), transparent 50%);
+  opacity: 0;
+  transition: opacity .35s var(--ease);
+  z-index: 0;
+}
+.pain-card,
+.value-card,
+.testimonial:not(.t-feature),
+.story-card,
+.team-card { position: relative; overflow: hidden; }
+.pain-card > *,
+.value-card > *,
+.testimonial:not(.t-feature) > *,
+.story-card > *,
+.team-card > * { position: relative; z-index: 1; }
+.pain-card:hover::after,
+.value-card:hover::after,
+.testimonial:not(.t-feature):hover::after,
+.story-card:hover::after,
+.team-card:hover::after { opacity: 1; }
+
+/* CTA arrow micro-shift — the arrow inside buttons nudges right on hover */
+.btn svg,
+.btn-primary svg { transition: transform .25s var(--ease); }
+.btn:hover svg { transform: translateX(3px); }
+
+/* Link-arrow ► already nudges via existing gap transition. Reinforce with a sweep underline. */
+.link-arrow { position: relative; }
+.link-arrow::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 100%;
+  bottom: 0;
+  height: 2px;
+  background: var(--turquoise);
+  transition: right .35s var(--ease);
+}
+.link-arrow:hover::after { right: 0; }
+
+/* FAQ details — opening animation for the answer paragraph */
+.faq-item[open] > p {
+  animation: faq-open-in .35s var(--ease) both;
+}
+@keyframes faq-open-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.faq-item summary { transition: background .2s var(--ease); }
+
+/* Scroll progress bar at top of page */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 3px;
+  background: transparent;
+  z-index: 90;
+  pointer-events: none;
+}
+.scroll-progress > span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--turquoise), var(--turquoise-700));
+  box-shadow: 0 0 12px rgba(0, 204, 194, 0.55);
+  transform-origin: left;
+  transition: width .08s linear;
+}
+
+/* Section heading underline draw-in when visible */
+.section-head h2 { position: relative; display: inline-block; padding-bottom: 8px; }
+.section-head h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  width: 0;
+  height: 3px;
+  background: var(--turquoise);
+  border-radius: 3px;
+  transform: translateX(-50%);
+  transition: width 1s var(--ease) .15s;
+}
+.section-head.is-visible h2::after { width: 56px; }
+
+/* Floating cards — already animate via .floating-card { animation: floaty }. Add subtle scale on parent hover. */
+.hero-visual:hover .floating-card { animation-play-state: paused; }
+
+/* Logos marquee — pause on hover so visitors can read the names */
+.logos-marquee:hover .logos-track { animation-play-state: paused; }
+
+/* Honor prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  body { animation: none; opacity: 1; }
+  .hero-visual .mock-window { animation: none; }
+  .hero-blob-1, .hero-blob-2 { animation: none; }
 }
 
 /* ============================================

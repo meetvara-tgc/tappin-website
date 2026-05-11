@@ -1,5 +1,32 @@
 # Changelog
 
+## v2.1.0 — 2026-05-11
+
+Adds a site-wide motion layer — calm, premium, on-brand. Every page now has subtle animation cues without crossing into flashy territory.
+
+### Added
+- **Body page-enter fade** — every page fades in on load (0.6s ease-out)
+- **Hero blob drift** — two slow keyframed loops (22s + 28s) for the radial blobs in hero backgrounds
+- **Hero screenshot float** — `.mock-window` gently floats with a 0.2deg tilt
+- **Gradient text shimmer** — `.text-grad` spans continuously sweep their gradient (9s loop)
+- **Stagger reveal** — grid children (pain cards, value cards, team cards, story cards, testimonials, outcome stats) fade in sequentially when their grid enters the viewport
+- **Card halo** — cursor-tracked radial highlight on `.pain-card`, `.value-card`, `.testimonial`, `.story-card`, `.team-card` (pointer-driven)
+- **CTA arrow micro-shift** — SVG arrows inside buttons nudge 3px right on hover
+- **Link-arrow underline sweep** — the inline `.link-arrow` gains a left-to-right underline draw on hover
+- **FAQ smooth open** — answer paragraph animates in with translate + fade when a `<details>` opens
+- **Section heading underline** — H2s draw a 56px turquoise underline once their section becomes visible
+- **Scroll progress bar** — a 3px turquoise gradient bar at the top of every page tracks read progress
+- **Logo strip pause on hover** — visitors can read partner names mid-scroll
+- **Hero floating cards pause on hover** — let users read the floating badges
+
+### Changed
+- `.reveal` transitions now honor a `--reveal-i` CSS variable for stagger delays (set via JS per grid child)
+
+### Accessibility
+- Full `prefers-reduced-motion` support — all keyframe animations and transitions collapse to instant when the user has reduced motion enabled
+
+---
+
 ## v2.0.0 — 2026-05-11
 
 First production-ready rebuild of the Tappin website. Complete replacement of the live tappin.no front-end with a lead-generation-optimized, SEO-complete static build.
