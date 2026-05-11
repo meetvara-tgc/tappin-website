@@ -5,6 +5,50 @@
    Accents (orange, yellow) only for CTAs/interactive elements."
    ============================================ */
 
+/* Galano Grotesque (brand typeface) */
+@font-face {
+  font-family: 'Galano Grotesque';
+  src: url('../fonts/GalanoGrotesqueRegular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Galano Grotesque';
+  src: url('../fonts/GalanoGrotesqueItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Galano Grotesque';
+  src: url('../fonts/GalanoGrotesqueMedium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Galano Grotesque';
+  src: url('../fonts/GalanoGrotesqueMediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Galano Grotesque';
+  src: url('../fonts/GalanoGrotesqueBold.otf') format('opentype');
+  font-weight: 600 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Galano Grotesque';
+  src: url('../fonts/GalanoGrotesqueBoldItalic.otf') format('opentype');
+  font-weight: 600 800;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   --turquoise: #00CCC2;
   --turquoise-700: #00A89F;
@@ -34,7 +78,7 @@
   --shadow-lg: 0 24px 60px rgba(0, 24, 62, 0.14);
   --shadow-glow: 0 24px 60px rgba(0, 204, 194, 0.28);
 
-  --font: 'Manrope', 'Open Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font: 'Galano Grotesque', 'Manrope', 'Open Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 
   --ease: cubic-bezier(.2, .8, .2, 1);
 }
@@ -208,7 +252,20 @@ ul { list-style: none; padding: 0; margin: 0; }
   padding: 16px 24px;
   gap: 32px;
 }
-.nav-logo img { height: 44px; width: auto; display: block; }
+.nav-logo { display: inline-flex; align-items: center; gap: 10px; line-height: 1; }
+.nav-logo img,
+.nav-logo .logo-icon { height: 36px; width: auto; display: block; }
+.nav-logo .logo-word {
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: -0.025em;
+  color: var(--navy);
+  line-height: 1;
+  margin-top: 4px;
+}
+.nav-logo:hover .logo-icon { transform: rotate(-6deg); }
+.nav-logo .logo-icon { transition: transform .3s var(--ease); }
 
 .nav-links {
   display: flex;
@@ -2129,7 +2186,11 @@ ul { list-style: none; padding: 0; margin: 0; }
   margin: 16px 0 22px;
   max-width: 360px;
 }
-.footer-logo { height: 52px; width: auto; display: block; margin-bottom: 4px; }
+.footer-brand .nav-logo { gap: 12px; }
+.footer-brand .nav-logo img,
+.footer-brand .nav-logo .logo-icon { height: 44px; }
+.footer-brand .nav-logo .logo-word { font-size: 38px; color: #fff; }
+.footer-logo { height: 44px; width: auto; display: block; margin-bottom: 4px; }
 .footer-cta {
   display: flex;
   gap: 10px;
@@ -3184,8 +3245,12 @@ ul { list-style: none; padding: 0; margin: 0; }
 @media (max-width: 600px) {
   .container { padding: 0 20px; }
   .announce-inner { padding: 10px 40px; font-size: 12.5px; }
-  .nav-logo img { height: 38px; }
-  .footer-logo { height: 44px; }
+  .nav-logo img,
+  .nav-logo .logo-icon { height: 30px; }
+  .nav-logo .logo-word { font-size: 25px; }
+  .footer-logo { height: 38px; }
+  .footer-brand .nav-logo .logo-icon { height: 38px; }
+  .footer-brand .nav-logo .logo-word { font-size: 32px; }
 
   .pains, .features, .roi, .customers, .playbook, .pricing, .faq, .demo {
     padding: 64px 0;
