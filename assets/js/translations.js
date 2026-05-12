@@ -164,6 +164,110 @@ window.translations = {
 
     /* ---------- Language switcher labels ---------- */
     'lang.toggleLabel': 'Bytt språk',
+
+    /* ===================================================
+       FAQ Q&A — tagged with data-i18n keys (HTML allowed)
+       Each summary ends with <span class="faq-icon"></span>
+       and translations must preserve that span.
+       =================================================== */
+
+    /* ---------- physical-event.html ---------- */
+    'physical.faq.q1': 'Hvor raskt kan vi lansere fysisk eventadministrasjon med Tappin?<span class="faq-icon"></span>',
+    'physical.faq.a1': 'De fleste norske kunder lanserer sitt første fysiske arrangement på Tappin innen 7-14 dager. Onboarding ledes av det norske teamet vårt og inkluderer en arbeidsøkt hvor vi bygger din påmeldingsside sammen med deg, konfigurerer innsjekkingsflyten din, og øver på event-dagens run-of-show.',
+    'physical.faq.q2': 'Hvilken skala av fysiske arrangementer støtter Tappin?<span class="faq-icon"></span>',
+    'physical.faq.a2': 'Fra 50-personers ledersamlinger til nasjonale konferanser med 5 000 deltakere. Tappin fysisk eventadministrasjon-plattform støtter flerroms-agendaer, flerdagersarrangementer, flerspråklige deltakeropplevelser, og høygjennomstrømmings selvbetjente innsjekkings-kiosker for de største fysiske arrangementene i Norge.',
+    'physical.faq.q3': 'Håndterer Tappin event-påmelding norske bedrifter faktisk kan bruke, Vipps, faktura, EHF?<span class="faq-icon"></span>',
+    'physical.faq.a3': 'Ja. Tappins <a href="payments-registrations.html">event-påmeldingsprogramvare i Norge</a> støtter kredittkort, Vipps, faktura med 14 eller 30 dagers betalingsfrist, og EHF e-fakturering for offentlig sektor. MVA håndteres per billettype, og regnskapseksport kjører native til Tripletex, Visma og Xledger.',
+    'physical.faq.q4': 'Hvordan ser konferanse-innsjekking i Norge ut på stedet?<span class="faq-icon"></span>',
+    'physical.faq.a4': 'Frivillige skanner en deltakers QR (fra e-post eller Tappin event-app) på en iPad eller mobil. Personlige navnelapper skrives ut i sanntid på en Bluetooth-etikettskriver. Gjennomsnittlig ende-til-ende innsjekkingstid er 1,2 sekunder. Systemet fungerer offline hvis arenaens Wi-Fi faller, og synkroniserer tilbake automatisk. Se hele oversikten på <a href="event-access.html">event-innsjekkingsprogramvare i Norge</a>-siden.',
+    'physical.faq.q5': 'Kan vi kjøre et fysisk arrangement i dag og pivotere til hybrid senere?<span class="faq-icon"></span>',
+    'physical.faq.a5': 'Ja, og det er en vanlig vei. Samme Tappin-plattform driver <a href="hybrid-event.html">hybride event-opplevelser</a> og helt <a href="digital-event.html">digitale arrangementer</a>. Å bytte omfang midt i syklusen krever ingen datamigrering, ingen ny leverandør, og ingen ombygging.',
+    'physical.faq.q6': 'Er fysisk eventadministrasjon i Norge GDPR-konform på Tappin?<span class="faq-icon"></span>',
+    'physical.faq.a6': 'Ja. Deltakerdata hostes i Norge, hver kunde signerer en databehandleravtale, og plattformen er bygget GDPR-først. Les hele samsvars-oversikten på <a href="gdpr.html">GDPR event-plattform i Norge</a>-siden.',
+
+    /* ---------- hybrid-event.html ---------- */
+    'hybrid.faq.q1': 'Hva gjør en hybrid event-plattform i Norge forskjellig fra et webinar-verktøy?<span class="faq-icon"></span>',
+    'hybrid.faq.a1': 'Et webinar-verktøy streamer en presentasjon. En hybrid event-plattform forener påmelding, billettering, innsjekking, streaming, nettverk, Q&A, avstemninger, sponsorsynlighet og analyse, for både ditt fysiske rom og digitale publikum samtidig. Tappin er det sistnevnte.',
+    'hybrid.faq.q2': 'Håndterer Tappin hybrid event-streaming i Norge med lav latens?<span class="faq-icon"></span>',
+    'hybrid.faq.a2': 'Ja. Flerroms HD-streaming er innebygd, med bakgrunns-kontroller, opptak, replay og live-tekstinger. Stream-latens er typisk under 5 sekunder, så online Q&A holder tritt med det fysiske rommet.',
+    'hybrid.faq.q3': 'Kan deltakere i rommet og online stemme i samme avstemning?<span class="faq-icon"></span>',
+    'hybrid.faq.a3': 'Ja, og dette er overskrifts-funksjonen. Avstemninger, Q&A med opp-stemming, og reaksjoner er forenet på tvers av begge publikum. Taleren ser ett kombinert resultat på skjermen, uavhengig av om stemmer kom fra salen i Oslo eller laptopene i Tromsø. Se hele funksjonssettet på <a href="interactivity-gamification.html">engasjementsplattform for arrangementer i Norge</a>-siden.',
+    'hybrid.faq.q4': 'Hvordan fungerer hybrid event-app for online-deltakere?<span class="faq-icon"></span>',
+    'hybrid.faq.a4': 'Samme <a href="event-app.html">merkebaserte event-app</a> betjener begge publikum. Online-deltakere bruker den til å se sesjoner, nettverke 1:1 med folk i rommet, og delta i live-avstemninger. Deltakere i rommet bruker den for personlige tidsplaner, innsjekkings-QR, og etter-sesjon-vurderinger. Én app, to publikum, null kompromiss.',
+    'hybrid.faq.q5': 'Hva er det største hybride arrangementet Tappin har drevet i Norge?<span class="faq-icon"></span>',
+    'hybrid.faq.a5': 'Våre største hybrid-kunder kjører regelmessig 3 000-5 000-personers arrangementer med samtidig fysisk innsjekking på tvers av flere byer og en live-stream for tusenvis flere. Plattformen skalerer horisontalt, det er ingen praktisk deltaker-grense for et Tappin hybrid-arrangement.',
+    'hybrid.faq.q6': 'Hvis vi vil gå helt digitalt senere, trenger vi en ny plattform?<span class="faq-icon"></span>',
+    'hybrid.faq.a6': 'Nei. Samme Tappin-plattform håndterer <a href="physical-event.html">fysiske arrangementer</a> og helt <a href="digital-event.html">digitale arrangementer</a>. Bytt format uten å re-plattforme, re-kjøpe eller re-trene teamet ditt.',
+
+    /* ---------- digital-event.html ---------- */
+    'digital.faq.q1': 'Hvordan er Tappin forskjellig fra et webinar-verktøy eller virtuell event-plattform i Norge?<span class="faq-icon"></span>',
+    'digital.faq.a1': 'Webinar-verktøy optimaliserer for kringkasting. Generiske virtuelle event-plattformer prøver å gjenskape messestander ingen besøker. Tappin digital event-plattform i Norge er bygget for deltakelse, merkebasert streaming sitter ved siden av ekte 1:1-nettverk, gamifiserte oppdrag, live-avstemninger, Q&A, og en innebygd app deltakerne faktisk åpner.',
+    'digital.faq.q2': 'Trenger deltakere å laste ned en app?<span class="faq-icon"></span>',
+    'digital.faq.a2': 'Nei. Tappin online konferanseplattform kjører som en Progressive Web App i hvilken som helst nettleser, mobil eller desktop. Bedriftskunder kan også tilby en native iOS/Android-shell. Deltakerne klikker én merkebasert lenke fra en e-post og de er inne.',
+    'digital.faq.q3': 'Håndterer plattformen flerspråklige digitale arrangementer?<span class="faq-icon"></span>',
+    'digital.faq.a3': 'Ja. Live-tekster og oversettelser støttes, og deltaker-grensesnittet kan settes per arrangement på norsk, engelsk, svensk, dansk, tysk eller spansk. Nyttig når det digitale publikummet ditt spenner over Norden.',
+    'digital.faq.q4': 'Kan vi ta opp sesjoner og tilby on-demand replay?<span class="faq-icon"></span>',
+    'digital.faq.a4': 'Ja. Hver sesjon kan tas opp og pushes til et on-demand-bibliotek tilgjengelig for registrerte deltakere. Biblioteket er fullt merkebasert med dine farger og logo, og analyse viser hvem som så hva, inkludert etter-arrangement-konsum.',
+    'digital.faq.q5': 'Hva skjer med engasjementsdata etter et digitalt arrangement?<span class="faq-icon"></span>',
+    'digital.faq.a5': 'Hver interaksjon fanges, sesjonsoppmøte, avstemningsresponser, nettverksaktivitet, Q&A-innsendinger. Data eksporterer til HubSpot, Salesforce, Microsoft Dynamics og Power BI native, så digitale event-leads flyter inn i eksisterende CRM-arbeidsflyt med null manuell opprydning.',
+    'digital.faq.q6': 'Kan vi pivotere til hybrid eller fysisk midt i syklusen?<span class="faq-icon"></span>',
+    'digital.faq.a6': 'Ja. Samme Tappin-plattform driver <a href="hybrid-event.html">hybride arrangementer</a> og helt fysiske <a href="physical-event.html">arrangementer</a>. Bytt omfang uten å re-plattforme. Denne pivot-klare arkitekturen er en av hovedgrunnene kundene valgte Tappin under 2020-forstyrrelsen, og ble værende.',
+
+    /* ---------- payments-registrations.html ---------- */
+    'payments.faq.q1': 'Hvilke betalingsmetoder støtter Tappin event-påmeldingsprogramvare i Norge?<span class="faq-icon"></span>',
+    'payments.faq.a1': 'Kredittkort, Vipps, faktura (14 eller 30 dagers betalingsfrist), og EHF e-fakturering for offentlig sektor. MVA-håndtering per billett er innebygd. Refusjoner og delvise kreditter er ett klikk unna.',
+    'payments.faq.q2': 'Kan deltakerne melde seg på på norsk og andre språk?<span class="faq-icon"></span>',
+    'payments.faq.a2': 'Ja. Tappin event-billettering-flyten i Norge er fullt flerspråklig, norsk, engelsk, svensk, dansk, tysk og spansk er støttet rett ut av boksen. Du kan publisere ulikt innhold per språk for samme arrangement.',
+    'payments.faq.q3': 'Hvordan integrerer event-påmeldingssiden med vårt CRM?<span class="faq-icon"></span>',
+    'payments.faq.a3': 'Native synk med HubSpot, Salesforce og Microsoft Dynamics. Åpent API og webhooks for alt annet. Påmeldingsdata flyter automatisk, ingen CSV-eksport kreves.',
+    'payments.faq.q4': 'Kan vi tilby gruppepriser, early-bird-billetter og rabattkoder?<span class="faq-icon"></span>',
+    'payments.faq.a4': 'Ja. Rabattkoder, gruppepriser, early-bird-prising, kun-medlem-billettyper og godkjenningsflyter er alle standard. Konfigurer per arrangement på minutter.',
+    'payments.faq.q5': 'Hva skjer etter at noen melder seg på?<span class="faq-icon"></span>',
+    'payments.faq.a5': 'Automatisk merkebasert bekreftelses-e-post med QR-kode for <a href="event-access.html">innsjekking</a>, tilgangslenke for <a href="event-app.html">merkebasert event-app</a>, og personlig agenda. Sekvens-baserte påminnelser planlegges automatisk basert på event-datoen.',
+    'payments.faq.q6': 'Hostes event-påmeldingsdata i Norge?<span class="faq-icon"></span>',
+    'payments.faq.a6': 'Ja. All persondata på Tappin event-påmeldingsprogramvare i Norge hostes i Norge og innenfor EU/EØS. Vi signerer en <a href="data-processing.html">databehandleravtale</a> med hver kunde. Full GDPR-detaljer på <a href="gdpr.html">GDPR event-plattform i Norge</a>-siden.',
+
+    /* ---------- event-access.html ---------- */
+    'access.faq.q1': 'Hvor rask er Tappin event-innsjekkingsprogramvare i Norge?<span class="faq-icon"></span>',
+    'access.faq.a1': 'Gjennomsnittlig ende-til-ende innsjekkingstid på tvers av våre norske kunder er 1,2 sekunder, inkludert QR-skann, deltaker-registerinnhenting og navnelapp-utskrift. Flaskehalsen blir skriverens mekaniske hastighet, ikke programvaren.',
+    'access.faq.q2': 'Hvilken maskinvare trenger vi for QR-innsjekkings-arrangementer i Norge?<span class="faq-icon"></span>',
+    'access.faq.a2': 'Nesten ingenting tilpasset. iPads eller iPhones for personalets skanning. Valgfrie Bluetooth-etikettskrivere for umiddelbar event-navnelapp-trykking i Norge. Selvbetjente kiosker kan være standard iPads på enkle gulvstativer. Tappin-programvaren kjører i en nettleser, ingen spesialisert maskinvare kreves.',
+    'access.faq.q3': 'Hva skjer hvis arenaens Wi-Fi faller midt i arrangementet?<span class="faq-icon"></span>',
+    'access.faq.a3': 'Tappin event-tilgangskontroll forblir operasjonell. Innsjekkinger, navnelapp-utskrifter og ankomst-sporing fortsetter alle offline. Systemet synkroniserer alt automatisk når forbindelsen kommer tilbake, uten duplikate navnelapper eller tapte oppføringer.',
+    'access.faq.q4': 'Kan vi kjøre flere innsjekkings-punkter og soner?<span class="faq-icon"></span>',
+    'access.faq.a4': 'Ja. Kjør hovedinngang, VIP-inngang og per-rom-skannere samtidig. Sanntids ankomst-data fyller et enhetlig dashboard så verter, servering og sikkerhet ser de samme tallene i samme øyeblikk.',
+    'access.faq.q5': 'Hvordan kobles innsjekking til event-appen og påmelding?<span class="faq-icon"></span>',
+    'access.faq.a5': 'Tett. Deltakere melder seg på gjennom <a href="payments-registrations.html">Tappin event-påmeldingsprogramvare</a> og mottar en QR i e-post + <a href="event-app.html">merkebasert event-app</a>. Skanning markerer dem til stede, skriver ut en personlig navnelapp, og låser opp engasjements-funksjoner i appen for den sesjonen.',
+    'access.faq.q6': 'Hva med walk-ins og siste-minutt-påmeldinger?<span class="faq-icon"></span>',
+    'access.faq.a6': 'Selvbetjente kiosker lar walk-ins melde seg på og sjekke inn på stedet. Personalet kan også registrere en walk-in fra hvilken som helst innsjekkings-enhet på sekunder, de mottar sin navnelapp før de går fra skranken.',
+
+    /* ---------- event-app.html ---------- */
+    'app.faq.q1': 'Er den merkebaserte event-appen norske kunder ser faktisk fullt merkebasert?<span class="faq-icon"></span>',
+    'app.faq.a1': 'Ja. Egne farger, logo, fonter, splash-skjerm, hero-bilde, eget domene (app.dittselskap.com), og event-spesifikke temaer. Deltakerne ser ikke «Tappin» noe sted med mindre du velger å kreditere oss. Appen føles som om merkevaren din bygget den selv.',
+    'app.faq.q2': 'Trenger deltakere å laste ned en mobil event-app i Norge fra App Store?<span class="faq-icon"></span>',
+    'app.faq.a2': 'Nei. Tappin event-app kjører som en Progressive Web App i hvilken som helst moderne nettleser. Deltakerne klikker én lenke fra e-post og appen installeres til hjemskjermen. For bedriftskunder som vil ha native iOS/Android, tilbyr vi Tappin-shell med din merkevare, ingen separat app-store-innsending nødvendig per arrangement.',
+    'app.faq.q3': 'Hvilke funksjoner er inne i deltaker-appen?<span class="faq-icon"></span>',
+    'app.faq.a3': 'Personlig agenda, push-varsler, foredragsholder-bios med LinkedIn, sponsorprofiler med leadfangst, deltakerkatalog og nettverk, AI-drevet 1:1-møtebooker, digitale visittkort, interaktive arena-kart, live <a href="interactivity-gamification.html">avstemninger og Q&A</a>, gamifiserte oppdrag, og personlige tilbakemeldings-spørsmål etter hver sesjon.',
+    'app.faq.q4': 'Kan vi kjøre en flerdagers eller multi-arrangements-opplevelse?<span class="faq-icon"></span>',
+    'app.faq.a4': 'Ja. Appen støtter flerdagers-agendaer, flerspors-arrangementer, gjentakende årskonferanser, og vedvarende deltakerprofiler som spenner over arrangementer. Medlemsorganisasjoner setter særlig pris på år-over-år-kontinuiteten for delegater og sponsorer.',
+    'app.faq.q5': 'Hvordan håndterer event-appen hybride og digitale publikum?<span class="faq-icon"></span>',
+    'app.faq.a5': 'Samme deltaker-app betjener fysiske, <a href="hybrid-event.html">hybride</a> og <a href="digital-event.html">digitale arrangement</a>-publikum. Online-deltakere ser streamer, nettverker 1:1, og blir med på Q&A fra samme app deltakerne i rommet bruker for personlige tidsplaner og innsjekkings-QR-er.',
+    'app.faq.q6': 'Hvor lang tid tar det å lansere en merkebasert event-app?<span class="faq-icon"></span>',
+    'app.faq.a6': 'Typisk 5-10 arbeidsdager fra kickoff til en fullt merkebasert forhåndsvisningslenke du kan dele med interessenter. Norsk onboarding-team bygger det første arrangementet sammen med deg, inkludert <a href="payments-registrations.html">påmelding</a>, <a href="event-access.html">innsjekking</a> og app, på én arbeidsøkt.',
+
+    /* ---------- interactivity-gamification.html ---------- */
+    'interactivity.faq.q1': 'Hva regnes som «engasjement» på Tappin engasjementsplattform for arrangementer?<span class="faq-icon"></span>',
+    'interactivity.faq.a1': 'Enhver meningsfull interaksjon utover passivt oppmøte, å stemme i en avstemning, stille eller stemme opp en Q&A, reagere på en sesjon, sende en møteforespørsel, åpne en sponsorprofil, eller fullføre et oppdrag. Vår 62%-benchmark er andelen deltakere som aktivt engasjerer seg i noen av disse i en gitt sesjon.',
+    'interactivity.faq.q2': 'Hvordan bruker live-avstemninger og Q&A-publikum i Norge sammenlignet med typiske avstemninger?<span class="faq-icon"></span>',
+    'interactivity.faq.a2': 'Flervalg, skala-basert, ordskyer, bilde-drevet og åpen tekst. Anonym-modus for sensitive temaer. Storskjerm-avsløring med jevne animasjoner så resultatet blir en del av showet, ikke en fotnote. Moderatorer kan pre-laste avstemninger eller improvisere under sesjonen.',
+    'interactivity.faq.q3': 'Kan vi moderere Q&A i sanntid?<span class="faq-icon"></span>',
+    'interactivity.faq.a3': 'Ja. Moderasjonskøen auto-grupperer like spørsmål, lar deg godkjenne eller slå sammen med ett klikk, og bringer kun godkjente spørsmål fram til talerens skjerm. Anonym-modus er tilgjengelig for sensitive interne arrangementer.',
+    'interactivity.faq.q4': 'Hvordan fungerer event-gamifisering i Norge uten å føles barnslig?<span class="faq-icon"></span>',
+    'interactivity.faq.a4': 'Oppdrag er designet rundt ekte atferd du vil belønne, besøk stand A, delta på mangfolds-sesjonen, bytt visittkort med tre talere. Ledertavlen bringer fram topp-deltakere, sponsor-finansierte premie-nivåer belønner vinnere, og anti-gaming-logikk forhindrer noen fra å spamme avstemninger for poeng.',
+    'interactivity.faq.q5': 'Fungerer engasjements-laget likt for hybride arrangementer?<span class="faq-icon"></span>',
+    'interactivity.faq.a5': 'Ja, og dette er en av Tappins signaturfunksjoner. Avstemninger, Q&A og reaksjoner forener publikum i rommet og online. En taler ser ett kombinert resultat, uavhengig av hvor stemmer kom fra. Full hybrid-funksjonsoversikt på <a href="hybrid-event.html">hybrid event-plattform i Norge</a>-siden.',
+    'interactivity.faq.q6': 'Hva skjer med engasjementsdata etter arrangementet?<span class="faq-icon"></span>',
+    'interactivity.faq.a6': 'Hver interaksjon fanges, aggregeres og er eksporterbar. Etter-arrangement-rapporter inkluderer engasjementsrate per sesjon, topp-spørsmål, avstemningsresultater og reaksjonstidslinjer. Data flyter til HubSpot, Salesforce eller Power BI via native integrasjon.',
   },
 
   /* ============================================================
