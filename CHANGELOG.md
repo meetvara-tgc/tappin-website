@@ -1,5 +1,27 @@
 # Changelog
 
+## v2.3.0 — 2026-05-12
+
+Expands Norwegian coverage to the full body content of every page using a text-node walker. Adds a separate v1 deployment for side-by-side comparison.
+
+### Added
+- **Comprehensive Norwegian text map** (`translations.nbText`) — ~150 English→Norwegian mappings covering body text that wasn't tagged with `data-i18n`: pain points, features, ROI calculator, outcomes, testimonials, playbook, pricing, FAQ heading, demo form, exit modal, common section labels
+- **Text-node walker** in `i18n.js` — walks all body text nodes (skipping `script, style, [data-i18n], input, textarea, select`) and applies the text map on language toggle
+- **Form placeholder translation** — input/textarea placeholders translate from the same text map
+- **Separate v1 deployment** at https://tappin-website-v1.vercel.app — a frozen snapshot of v2.1.0 (pre-language, pre-cursor) for side-by-side comparison with the current site
+
+### Coverage now
+- Nav, footer, mobile CTA: fully translated
+- Hero on every page (eyebrow + H1 + sub): fully translated
+- Body content: comprehensive translation via text-node walker for headings, intro paragraphs, button labels, card titles, list items, form labels, and short content lines
+- Long-form prose (full FAQ answers, blog article body, legal page paragraphs): still English on toggle, will translate in v2.4 if requested
+
+### Notes
+- Norwegian translations are first-pass. Native Norwegian copy editor review still recommended before public launch.
+- Text-node walker is exact-match (trimmed). Body text that doesn't exactly match a dictionary key stays English. This is by design — partial substring matching is too risky for production.
+
+---
+
 ## v2.2.0 — 2026-05-11
 
 Adds bilingual (English / Norwegian Bokmål) support with smart language detection, plus a premium custom cursor for desktop visitors. Both ship across all 15 pages.

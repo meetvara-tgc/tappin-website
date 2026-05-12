@@ -47,11 +47,54 @@
     });
   }
 
+  // Original-text cache for text-node walker (so EN can be restored)
+  const textNodeCache = new WeakMap();
+
+  function walkText(lang, textMap) {
+    // Skip non-rendered subtrees + interactive form fields
+    const SKIP_SELECTORS = 'script, style, noscript, .lang-switcher, [data-i18n], [data-i18n-skip], input, textarea, select, code, pre';
+    const walker = document.createTreeWalker(
+      document.body,
+      NodeFilter.SHOW_TEXT,
+      {
+        acceptNode(node) {
+          if (!node.parentElement) return NodeFilter.FILTER_REJECT;
+          if (node.parentElement.closest(SKIP_SELECTORS)) return NodeFilter.FILTER_REJECT;
+          const t = node.nodeValue;
+          if (!t || !t.trim()) return NodeFilter.FILTER_REJECT;
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      }
+    );
+    const nodes = [];
+    let n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    nodes.forEach(node => {
+      const cached = textNodeCache.get(node);
+      const originalText = cached !== undefined ? cached : node.nodeValue;
+      if (cached === undefined) textNodeCache.set(node, node.nodeValue);
+      if (lang === 'en' || !textMap) {
+        node.nodeValue = originalText;
+      } else {
+        const trimmed = originalText.trim();
+        if (textMap[trimmed]) {
+          // Preserve leading/trailing whitespace
+          const lead = originalText.match(/^\s*/)[0];
+          const trail = originalText.match(/\s*$/)[0];
+          node.nodeValue = lead + textMap[trimmed] + trail;
+        } else {
+          node.nodeValue = originalText;
+        }
+      }
+    });
+  }
+
   function apply(lang) {
     cacheOriginals();
     const dict = (lang !== 'en' && window.translations && window.translations[lang]) || null;
+    const textMap = (lang !== 'en' && window.translations && window.translations[lang + 'Text']) || null;
 
-    // Text content
+    // 1) HTML/markup content via data-i18n (more reliable for elements with mixed content)
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.dataset.i18n;
       if (lang === 'en' || !dict || !dict[key]) {
@@ -61,7 +104,7 @@
       }
     });
 
-    // Attribute content (e.g., input placeholder)
+    // 2) Attribute content (placeholders, etc.)
     document.querySelectorAll('[data-i18n-attr]').forEach(el => {
       const spec = el.dataset.i18nAttr;
       if (!spec) return;
@@ -74,6 +117,27 @@
         el.setAttribute(attr, dict[key]);
       }
     });
+
+    // 3) Plain text-node walker — covers all remaining English text whose parent
+    //    doesn't have data-i18n. Uses a content-keyed map (translations.nbText).
+    walkText(lang, textMap);
+
+    // 4) Translate form placeholders that have no data-i18n-attr but match the text map
+    if (textMap) {
+      document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(el => {
+        if (!el.dataset.originalPlaceholder) el.dataset.originalPlaceholder = el.getAttribute('placeholder');
+        const orig = el.dataset.originalPlaceholder;
+        if (lang === 'en') {
+          el.setAttribute('placeholder', orig);
+        } else if (textMap[orig]) {
+          el.setAttribute('placeholder', textMap[orig]);
+        }
+      });
+    } else {
+      document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(el => {
+        if (el.dataset.originalPlaceholder) el.setAttribute('placeholder', el.dataset.originalPlaceholder);
+      });
+    }
 
     document.documentElement.setAttribute('lang', lang === 'nb' ? 'nb-NO' : 'en');
 
