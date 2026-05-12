@@ -2586,20 +2586,9 @@ body { animation: page-enter .6s var(--ease) both; }
    NAV DROPDOWN (used on inner pages)
    ============================================ */
 .has-dropdown { position: relative; }
-.has-dropdown > a { display: inline-flex; align-items: center; gap: 5px; }
-.has-dropdown > a::before { content: ''; }
-.has-dropdown > a::after {
-  content: '';
-  display: inline-block;
-  width: 8px; height: 8px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
-  transform: rotate(45deg);
-  margin-bottom: 3px;
-  margin-left: 4px;
-  transition: transform .2s var(--ease);
-}
-.has-dropdown:hover > a::after { transform: rotate(225deg); margin-bottom: -2px; margin-top: 3px; }
+/* Dropdown chevron removed by design — the existing turquoise underline-on-hover
+   (.nav-links a::after) now applies to Platform and Solutions too. The menu drop
+   appearing on hover is itself the indicator. */
 
 .dropdown {
   position: absolute;
