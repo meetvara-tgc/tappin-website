@@ -250,6 +250,73 @@
   counters.forEach(el => counterIo.observe(el));
 
   // --------------------------------------------
+  // Custom cursor (desktop, non-touch, motion allowed)
+  // --------------------------------------------
+  (function customCursor() {
+    const supportsHover = matchMedia('(hover: hover)').matches;
+    const coarse = matchMedia('(pointer: coarse)').matches;
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!supportsHover || coarse || reducedMotion) return;
+
+    const dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    dot.setAttribute('aria-hidden', 'true');
+    const ring = document.createElement('div');
+    ring.className = 'cursor-ring';
+    ring.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(dot);
+    document.body.appendChild(ring);
+    document.body.classList.add('cursor-on');
+
+    // Hide native cursor only on the body so the OS cursor over input fields still works fine.
+    const style = document.createElement('style');
+    style.textContent = 'body.cursor-on { cursor: none; } body.cursor-on a, body.cursor-on button, body.cursor-on .btn { cursor: none; }';
+    document.head.appendChild(style);
+
+    let mx = -100, my = -100;
+    let dx = mx, dy = my;
+    let rx = mx, ry = my;
+
+    document.addEventListener('mousemove', (e) => {
+      mx = e.clientX;
+      my = e.clientY;
+    }, { passive: true });
+
+    document.addEventListener('mousedown', () => document.body.classList.add('cursor-down'));
+    document.addEventListener('mouseup',   () => document.body.classList.remove('cursor-down'));
+    document.addEventListener('mouseleave', () => {
+      dot.style.opacity = '0';
+      ring.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', () => {
+      dot.style.opacity = '';
+      ring.style.opacity = '';
+    });
+
+    // Hover state on interactive elements
+    const hoverSelector = 'a, button, [role="button"], input, textarea, select, .btn, [data-cursor]';
+    document.addEventListener('pointerover', (e) => {
+      if (e.target.closest(hoverSelector)) document.body.classList.add('cursor-hover');
+    });
+    document.addEventListener('pointerout', (e) => {
+      if (e.target.closest(hoverSelector)) document.body.classList.remove('cursor-hover');
+    });
+
+    function tick() {
+      // Instant-ish dot (high follow factor)
+      dx += (mx - dx) * 0.4;
+      dy += (my - dy) * 0.4;
+      dot.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
+      // Smoothly-lagging ring
+      rx += (mx - rx) * 0.18;
+      ry += (my - ry) * 0.18;
+      ring.style.transform = `translate3d(${rx}px, ${ry}px, 0)`;
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  })();
+
+  // --------------------------------------------
   // Stagger index — children of grids fade in one after another
   // --------------------------------------------
   const staggerParents = $$('.pain-grid, .value-grid, .team-grid, .stories-grid, .testimonial-grid, .outcomes-stats');

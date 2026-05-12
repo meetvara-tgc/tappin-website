@@ -64,8 +64,8 @@
 <div class="announce" id="announce">
     <div class="container announce-inner">
       <span class="announce-dot"></span>
-      <span><strong>New:</strong> The 2026 Event Engagement Playbook is live.</span>
-      <a href="index.html#playbook" class="announce-link">Get your free copy →</a>
+      <span data-i18n="announce.banner"><strong>New:</strong> The 2026 Event Engagement Playbook is live.</span>
+      <a href="index.html#playbook" class="announce-link" data-i18n="announce.cta">Get your free copy →</a>
       <button class="announce-close" aria-label="Close announcement">×</button>
     </div>
   </div>
@@ -74,7 +74,7 @@
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo" aria-label="Tappin home"><img src="assets/logo-main.png" alt="Tappin, digital event platform Norway · logo" width="180" height="60" /></a>
       <nav class="nav-links" aria-label="Primary">
-        <div class="has-dropdown"><a href="#">Platform</a>
+        <div class="has-dropdown"><a href="#" data-i18n="nav.platform">Platform</a>
           <div class="dropdown">
             <a href="payments-registrations.html"><span class="dropdown-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 10h18M5 6h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="dropdown-text"><strong>Payments & Registrations</strong><span>Event sites, tickets, invoicing</span></span></a>
             <a href="event-access.html"><span class="dropdown-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5M3 12h18M7 16h2M11 16h2M15 16h2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="dropdown-text"><strong>Event Access Infrastructure</strong><span>QR check-in, badges, kiosks</span></span></a>
@@ -82,32 +82,34 @@
             <a href="interactivity-gamification.html"><span class="dropdown-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M2 12h4l3 8 4-16 3 8h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="dropdown-text"><strong>Interactivity & Gamification</strong><span>Polls, Q&A, leaderboards</span></span></a>
           </div>
         </div>
-        <div class="has-dropdown"><a href="#">Solutions</a>
+        <div class="has-dropdown"><a href="#" data-i18n="nav.solutions">Solutions</a>
           <div class="dropdown">
             <a href="physical-event.html"><span class="dropdown-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="dropdown-text"><strong>Physical Events</strong><span>In-person conferences & summits</span></span></a>
             <a href="hybrid-event.html"><span class="dropdown-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 22h8M12 18v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="dropdown-text"><strong>Hybrid Events</strong><span>Physical + digital audiences</span></span></a>
             <a href="digital-event.html"><span class="dropdown-icon"><svg viewBox="0 0 24 24" fill="none"><polygon points="23 7 16 12 23 17 23 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="1" y="5" width="15" height="14" rx="2" stroke="currentColor" stroke-width="2"/></svg></span><span class="dropdown-text"><strong>Digital Events</strong><span>Fully online events</span></span></a>
           </div>
         </div>
-        <a href="stories.html">Stories</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+        <a href="stories.html" data-i18n="nav.stories">Stories</a><a href="about.html" data-i18n="nav.about">About</a><a href="contact.html" data-i18n="nav.contact">Contact</a>
       </nav>
       <div class="nav-actions">
-        <a href="https://registration.tappin.no" class="btn btn-ghost btn-sm">Log in</a>
-        <a href="contact.html" class="btn btn-primary btn-sm">Book a demo</a>
+        <div class="lang-switcher" role="group" aria-label="Switch language"><button type="button" class="lang-btn is-active" data-lang="en">EN</button><button type="button" class="lang-btn" data-lang="nb">NO</button></div>
+        <a href="https://registration.tappin.no" class="btn btn-ghost btn-sm"><span data-i18n="nav.login">Log in</span></a>
+        <a href="contact.html" class="btn btn-primary btn-sm"><span data-i18n="nav.bookDemo">Book a demo</span></a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
     <div class="nav-mobile" id="navMobile">
-      <a href="#">Platform</a>
+      <a href="#" data-i18n="nav.platform">Platform</a>
       <div class="dropdown-mobile">
         <a href="payments-registrations.html">Payments & Registrations</a><a href="event-access.html">Event Access Infrastructure</a><a href="event-app.html">Event App Platform</a><a href="interactivity-gamification.html">Interactivity & Gamification</a>
       </div>
-      <a href="#">Solutions</a>
+      <a href="#" data-i18n="nav.solutions">Solutions</a>
       <div class="dropdown-mobile">
         <a href="physical-event.html">Physical Events</a><a href="hybrid-event.html">Hybrid Events</a><a href="digital-event.html">Digital Events</a>
       </div>
-      <a href="stories.html">Stories</a><a href="about.html">About</a><a href="contact.html">Contact</a>
-      <a href="https://registration.tappin.no" class="btn btn-ghost">Log in</a><a href="contact.html" class="btn btn-primary">Book a demo</a>
+      <a href="stories.html" data-i18n="nav.stories">Stories</a><a href="about.html" data-i18n="nav.about">About</a><a href="contact.html" data-i18n="nav.contact">Contact</a>
+      <div class="lang-switcher" role="group" aria-label="Switch language"><button type="button" class="lang-btn is-active" data-lang="en">EN</button><button type="button" class="lang-btn" data-lang="nb">NO</button></div>
+      <a href="https://registration.tappin.no" class="btn btn-ghost"><span data-i18n="nav.login">Log in</span></a><a href="contact.html" class="btn btn-primary"><span data-i18n="nav.bookDemo">Book a demo</span></a>
     </div>
   </header>
 
@@ -122,9 +124,9 @@
       <div class="solution-hero-grid">
         <div>
           <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="#">Solutions</a><span>/</span>Digital Events</div>
-          <span class="eyebrow"><span class="eyebrow-dot"></span>Digital events</span>
-          <h1><span class="text-grad">Digital event platform Norway</span>, online events that don't feel like webinars.</h1>
-          <p>Tappin is the digital event platform Norway's leading organizations chose during 2020, and stayed with. Branded streaming, real conversations, gamified <a href="interactivity-gamification.html">engagement</a>, and 1:1 networking in our <a href="event-app.html">branded event app</a>. Tappin makes digital feel like an event, not a meeting people muted at minute three.</p>
+          <span class="eyebrow" data-i18n="digital.hero.eyebrow"><span class="eyebrow-dot"></span>Digital events</span>
+          <h1 data-i18n="digital.hero.h1"><span class="text-grad">Digital event platform Norway</span>, online events that don't feel like webinars.</h1>
+          <p data-i18n="digital.hero.sub">Tappin is the digital event platform Norway's leading organizations chose during 2020, and stayed with. Branded streaming, real conversations, gamified <a href="interactivity-gamification.html">engagement</a>, and 1:1 networking in our <a href="event-app.html">branded event app</a>. Tappin makes digital feel like an event, not a meeting people muted at minute three.</p>
           <div class="inner-hero-cta">
             <a href="contact.html" class="btn btn-primary btn-lg">Book a free demo</a>
             <a href="#features" class="btn btn-ghost-dark btn-lg">See the platform</a>
@@ -336,23 +338,25 @@
         <div class="footer-brand">
           <a href="index.html" class="nav-logo" aria-label="Tappin home"><img src="assets/logo-reverse.png" alt="Tappin digital event platform Norway, footer logo" class="footer-logo" width="220" height="74" /></a>
           <p>Your event solution. Powerful simplicity from invite to insight, trusted by Norway's leading organizations.</p>
-          <div class="footer-cta"><a href="contact.html" class="btn btn-primary btn-sm">Book a demo</a><a href="mailto:post@tappin.no" class="btn btn-ghost-light btn-sm">post@tappin.no</a></div>
+          <div class="footer-cta"><a href="contact.html" class="btn btn-primary btn-sm"><span data-i18n="nav.bookDemo">Book a demo</span></a><a href="mailto:post@tappin.no" class="btn btn-ghost-light btn-sm">post@tappin.no</a></div>
         </div>
-        <div class="footer-col"><h5>Platform</h5><a href="payments-registrations.html">Payments & Registrations</a><a href="event-access.html">Event Access</a><a href="event-app.html">Event App</a><a href="interactivity-gamification.html">Interactivity</a><a href="https://registration.tappin.no">Customer login</a></div>
-        <div class="footer-col"><h5>Solutions</h5><a href="physical-event.html">Physical events</a><a href="hybrid-event.html">Hybrid events</a><a href="digital-event.html">Digital events</a><a href="stories.html">Stories</a></div>
-        <div class="footer-col"><h5>Resources</h5><a href="index.html#playbook">2026 Playbook</a><a href="index.html#customers">Case studies</a><a href="index.html#roi">ROI calculator</a><a href="index.html#faq">FAQ</a></div>
-        <div class="footer-col"><h5>Company</h5><a href="about.html">About Tappin</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="gdpr.html">GDPR</a><a href="data-processing.html">Data Processing</a></div>
+        <div class="footer-col"><h5 data-i18n="footer.col.platform">Platform</h5><a href="payments-registrations.html">Payments & Registrations</a><a href="event-access.html">Event Access</a><a href="event-app.html">Event App</a><a href="interactivity-gamification.html">Interactivity</a><a href="https://registration.tappin.no">Customer login</a></div>
+        <div class="footer-col"><h5 data-i18n="footer.col.solutions">Solutions</h5><a href="physical-event.html">Physical events</a><a href="hybrid-event.html">Hybrid events</a><a href="digital-event.html">Digital events</a><a href="stories.html" data-i18n="nav.stories">Stories</a></div>
+        <div class="footer-col"><h5 data-i18n="footer.col.resources">Resources</h5><a href="index.html#playbook">2026 Playbook</a><a href="index.html#customers">Case studies</a><a href="index.html#roi">ROI calculator</a><a href="index.html#faq">FAQ</a></div>
+        <div class="footer-col"><h5 data-i18n="footer.col.company">Company</h5><a href="about.html">About Tappin</a><a href="contact.html" data-i18n="nav.contact">Contact</a><a href="privacy.html">Privacy</a><a href="gdpr.html">GDPR</a><a href="data-processing.html">Data Processing</a></div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Tappin AS · Drammensveien 288, 0283 Oslo, Norway</span><span class="footer-version">v2.1</span>
+        <span data-i18n="footer.copyrightFull">© 2026 Tappin AS · Drammensveien 288, 0283 Oslo, Norway</span><span class="footer-version">v2.2</span>
         <div class="footer-social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="X">x</a></div>
       </div>
     </div>
   </footer>
 
-  <div class="mobile-cta"><a href="mailto:post@tappin.no" class="btn btn-ghost-dark btn-sm">Email us</a><a href="contact.html" class="btn btn-primary btn-sm">Book a free demo →</a></div>
+  <div class="mobile-cta"><a href="mailto:post@tappin.no" class="btn btn-ghost-dark btn-sm"><span data-i18n="mobile.email">Email us</span></a><a href="contact.html" class="btn btn-primary btn-sm"><span data-i18n="mobile.demo">Book a free demo →</span></a></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <div class="modal" id="exitModal" aria-hidden="true"><div class="modal-backdrop" data-close></div></div>
+  <script src="assets/js/translations.js" defer></script>
+  <script src="assets/js/i18n.js" defer></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

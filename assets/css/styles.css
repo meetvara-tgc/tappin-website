@@ -2567,6 +2567,118 @@ body { animation: page-enter .6s var(--ease) both; }
 /* Logos marquee — pause on hover so visitors can read the names */
 .logos-marquee:hover .logos-track { animation-play-state: paused; }
 
+/* ============================================
+   LANGUAGE SWITCHER (header pill EN | NO)
+   ============================================ */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid var(--line);
+  border-radius: 99px;
+  padding: 2px;
+  background: #fff;
+  margin-right: 4px;
+}
+.lang-btn {
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 6px 12px;
+  border-radius: 99px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background .2s var(--ease), color .2s var(--ease);
+  min-width: 36px;
+}
+.lang-btn.is-active {
+  background: var(--navy);
+  color: #fff;
+}
+.lang-btn:hover:not(.is-active) {
+  color: var(--navy);
+}
+@media (max-width: 980px) {
+  .nav-inner .lang-switcher { display: none; }
+}
+
+/* Mobile menu version (block, full-width-ish) */
+.nav-mobile .lang-switcher {
+  align-self: flex-start;
+  margin: 6px 0 12px;
+}
+
+/* ============================================
+   CUSTOM CURSOR (desktop, non-touch)
+   Two elements: instant dot + lagging ring.
+   ============================================ */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate3d(-100px, -100px, 0);
+  will-change: transform;
+  display: none;
+}
+body.cursor-on .cursor-dot,
+body.cursor-on .cursor-ring { display: block; }
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  margin-top: -3px;
+  background: var(--navy);
+  border-radius: 50%;
+  transition: opacity .2s ease, background .2s ease, transform .08s linear;
+}
+.cursor-ring {
+  width: 38px;
+  height: 38px;
+  margin-left: -19px;
+  margin-top: -19px;
+  border: 1.5px solid var(--turquoise);
+  border-radius: 50%;
+  background: transparent;
+  transition: width .3s var(--ease), height .3s var(--ease),
+              margin .3s var(--ease), background .25s var(--ease),
+              border-color .2s ease, opacity .2s ease;
+}
+/* Hover state — over any interactive element */
+body.cursor-hover .cursor-dot { opacity: 0; }
+body.cursor-hover .cursor-ring {
+  width: 64px;
+  height: 64px;
+  margin-left: -32px;
+  margin-top: -32px;
+  background: rgba(0, 204, 194, 0.18);
+  border-color: var(--turquoise);
+}
+/* Click pulse */
+body.cursor-down .cursor-ring {
+  width: 28px;
+  height: 28px;
+  margin-left: -14px;
+  margin-top: -14px;
+  background: rgba(0, 204, 194, 0.35);
+}
+/* Hide custom cursor on touch/coarse pointers */
+@media (hover: none), (pointer: coarse) {
+  body.cursor-on { cursor: auto !important; }
+  body.cursor-on .cursor-dot,
+  body.cursor-on .cursor-ring { display: none !important; }
+  body.cursor-on a,
+  body.cursor-on button,
+  body.cursor-on [role="button"],
+  body.cursor-on input,
+  body.cursor-on textarea,
+  body.cursor-on select { cursor: auto; }
+}
+
 /* Honor prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -2580,6 +2692,8 @@ body { animation: page-enter .6s var(--ease) both; }
   body { animation: none; opacity: 1; }
   .hero-visual .mock-window { animation: none; }
   .hero-blob-1, .hero-blob-2 { animation: none; }
+  .cursor-dot, .cursor-ring { display: none !important; }
+  body.cursor-on { cursor: auto !important; }
 }
 
 /* ============================================
