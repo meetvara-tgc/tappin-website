@@ -57,7 +57,7 @@
   });
 
   // --------------------------------------------
-  // ROI Calculator
+  // ROI Calculator — guards against missing elements on pages without the calc
   // --------------------------------------------
   const roiEvents    = $('#roiEvents');
   const roiAttendees = $('#roiAttendees');
@@ -71,13 +71,14 @@
   const fmt = (n) => n.toLocaleString('en-US');
 
   const calcRoi = () => {
+    if (!roiEvents || !roiAttendees || !roiTeam) return;   // ← guard
     const events    = parseInt(roiEvents.value, 10);
     const attendees = parseInt(roiAttendees.value, 10);
     const team      = parseInt(roiTeam.value, 10);
 
-    roiEventsOut.textContent    = fmt(events);
-    roiAttendeesOut.textContent = fmt(attendees);
-    roiTeamOut.textContent      = fmt(team);
+    if (roiEventsOut)    roiEventsOut.textContent    = fmt(events);
+    if (roiAttendeesOut) roiAttendeesOut.textContent = fmt(attendees);
+    if (roiTeamOut)      roiTeamOut.textContent      = fmt(team);
 
     // Heuristic: hours saved per event scales with attendees + team coordination.
     // Real customer benchmark: ~32 hrs saved per event at 350 attendees, 3-person team.
@@ -85,12 +86,12 @@
     const hoursTotal = Math.round(events * baseHoursPerEvent);
     const hourlyCost = 600; // NOK per hour avg loaded cost
 
-    roiHours.textContent = fmt(hoursTotal);
-    roiValue.textContent = 'kr ' + fmt(hoursTotal * hourlyCost);
+    if (roiHours) roiHours.textContent = fmt(hoursTotal);
+    if (roiValue) roiValue.textContent = 'kr ' + fmt(hoursTotal * hourlyCost);
   };
 
   [roiEvents, roiAttendees, roiTeam].forEach(el => el && el.addEventListener('input', calcRoi));
-  calcRoi();
+  if (roiEvents) calcRoi();   // ← only run initial calc on pages that have the calculator
 
   // --------------------------------------------
   // FORM HANDLERS
