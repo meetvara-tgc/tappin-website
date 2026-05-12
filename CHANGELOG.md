@@ -1,5 +1,26 @@
 # Changelog
 
+## v2.3.1 — 2026-05-12
+
+Adds another ~200 Norwegian text-map entries to extend body coverage to almost every visible string.
+
+### Added
+- **Homepage FAQ** — all 6 questions + answers translated
+- **Homepage testimonials** — all 6 customer quotes + role labels
+- **All "Who it's for" cards** across 3 solution pages + 4 platform pages (21 cards total: title + body)
+- **About page** — full coverage: 6 brand values, 8 team role titles, 6 industries with descriptions, "Why Norway" 3-paragraph editorial
+- **Contact page** — "What to expect" 4-step timeline + 6 demo FAQ Q&A pairs
+- **Stories page** — 6 topic cluster descriptions + 3-paragraph editorial promise + all 12 story card titles + descriptions
+- **Legal pages** — section headings (Introduction, What we collect, How we use it, Retention, Your rights, etc.) across Privacy/GDPR/DPA
+
+### Coverage now
+- Nav, footer, hero on every page: 100% NB
+- Body content on all marketing pages (home, solutions, platform, about, contact, stories): comprehensive NB coverage
+- Long-form blog article body (1400 words): still EN — would need a dedicated translation pass
+- Legal page detailed prose paragraphs: still EN — recommend native review before translating legal text
+
+---
+
 ## v2.3.0 — 2026-05-12
 
 Expands Norwegian coverage to the full body content of every page using a text-node walker. Adds a separate v1 deployment for side-by-side comparison.
