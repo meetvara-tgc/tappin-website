@@ -47,6 +47,62 @@
     });
   }
 
+  // ============================================
+  // META SWAP — title + description + OG + Twitter
+  // ============================================
+  let metaCache = null;
+  function getPageId() {
+    const m = document.querySelector('meta[name="page-id"]');
+    return m ? m.getAttribute('content') : null;
+  }
+  function setMetaContent(selector, value) {
+    const el = document.querySelector(selector);
+    if (el) el.setAttribute('content', value);
+  }
+  function cacheEnMeta() {
+    if (metaCache) return;
+    const desc = document.querySelector('meta[name="description"]');
+    const ogt  = document.querySelector('meta[property="og:title"]');
+    const ogd  = document.querySelector('meta[property="og:description"]');
+    const ogl  = document.querySelector('meta[property="og:locale"]');
+    const twt  = document.querySelector('meta[name="twitter:title"]');
+    const twd  = document.querySelector('meta[name="twitter:description"]');
+    const htmllang = document.documentElement.getAttribute('lang');
+    metaCache = {
+      title:           document.title,
+      description:     desc ? desc.getAttribute('content') : '',
+      ogTitle:         ogt ? ogt.getAttribute('content') : '',
+      ogDescription:   ogd ? ogd.getAttribute('content') : '',
+      ogLocale:        ogl ? ogl.getAttribute('content') : 'en_NO',
+      twitterTitle:    twt ? twt.getAttribute('content') : '',
+      twitterDesc:     twd ? twd.getAttribute('content') : '',
+      htmlLang:        htmllang || 'en'
+    };
+  }
+  function swapMeta(lang) {
+    cacheEnMeta();
+    const pageId = getPageId();
+    if (lang === 'nb' && pageId && window.nbMeta && window.nbMeta[pageId]) {
+      const m = window.nbMeta[pageId];
+      document.title = m.title;
+      setMetaContent('meta[name="description"]',         m.description);
+      setMetaContent('meta[property="og:title"]',        m.title);
+      setMetaContent('meta[property="og:description"]',  m.description);
+      setMetaContent('meta[property="og:locale"]',       'nb_NO');
+      setMetaContent('meta[name="twitter:title"]',       m.title);
+      setMetaContent('meta[name="twitter:description"]', m.description);
+    } else {
+      // Restore English
+      document.title = metaCache.title;
+      setMetaContent('meta[name="description"]',         metaCache.description);
+      setMetaContent('meta[property="og:title"]',        metaCache.ogTitle);
+      setMetaContent('meta[property="og:description"]',  metaCache.ogDescription);
+      setMetaContent('meta[property="og:locale"]',       metaCache.ogLocale);
+      setMetaContent('meta[name="twitter:title"]',       metaCache.twitterTitle);
+      setMetaContent('meta[name="twitter:description"]', metaCache.twitterDesc);
+    }
+  }
+
   // Original-text cache for text-node walker (so EN can be restored)
   const textNodeCache = new WeakMap();
 
@@ -140,6 +196,9 @@
     }
 
     document.documentElement.setAttribute('lang', lang === 'nb' ? 'nb-NO' : 'en');
+
+    // 5) Swap document title + meta description + OG/Twitter tags per page-id
+    swapMeta(lang);
 
     // Toggle UI state
     document.querySelectorAll('.lang-btn').forEach(btn => {

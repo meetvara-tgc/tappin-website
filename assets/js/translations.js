@@ -1,8 +1,94 @@
 ﻿/* ============================================
-   TAPPIN — Norwegian translations (v2.2.0)
+   TAPPIN — Norwegian translations (v2.2.0+)
    English is the source content in HTML.
    Norwegian keys are applied at runtime by i18n.js.
    ============================================ */
+
+/* ============================================================
+   Norwegian META data per page — keyed by <meta name="page-id">
+   Each entry: title <= 60 chars · description <= 160 chars
+   Focus keyword (Norwegian) appears in BOTH title and description.
+   i18n.js swaps document.title, meta[name=description], og:title,
+   og:description, twitter:title, twitter:description on lang change.
+   ============================================================ */
+window.nbMeta = {
+  home: {
+    focus: 'eventplattform Norge',
+    title: 'Eventplattform Norge | Tappin – Din Event-løsning',
+    description: 'Tappin er eventplattformen Norges ledende organisasjoner stoler på. Påmelding, innsjekking, engasjement og analyse i én flyt. Bestill gratis demo.'
+  },
+  about: {
+    focus: 'norsk eventteknologi-selskap',
+    title: 'Norsk Eventteknologi-selskap | Om Tappin AS',
+    description: 'Tappin AS er det norske eventteknologi-selskapet som har bygget Din Event-løsning siden 2012 i Oslo. Møt teamet bak 500+ arrangementer årlig.'
+  },
+  contact: {
+    focus: 'eventplattform-demo Norge',
+    title: 'Bestill Eventplattform-demo Norge | Kontakt Tappin',
+    description: 'Bestill en gratis eventplattform-demo i Norge. Snakk med en Tappin eventekspert i Oslo – svar garantert innen 2 arbeidstimer. Ingen salgsmaratonn.'
+  },
+  physical: {
+    focus: 'fysisk eventadministrasjon Norge',
+    title: 'Fysisk Eventadministrasjon Norge | Tappin Eventplattform',
+    description: 'Fysisk eventadministrasjon Norge – Tappin håndterer innsjekking, navnelapper, agenda, nettverk og engasjement i én rolig flyt. 500+ arrangementer årlig.'
+  },
+  hybrid: {
+    focus: 'hybrid eventplattform Norge',
+    title: 'Hybrid Eventplattform Norge | Tappin Hybride Arrangementer',
+    description: 'Hybrid eventplattform Norge – forener fysiske og digitale publikum i én merkebasert opplevelse. Streaming, nettverk, Q&A, avstemninger. Brukt av Tekna.'
+  },
+  digital: {
+    focus: 'digital eventplattform Norge',
+    title: 'Digital Eventplattform Norge | Tappin Online Arrangementer',
+    description: 'Digital eventplattform Norge – merkebasert streaming, ekte nettverk og gamifisert engasjement. Online arrangementer som ikke føles som webinarer.'
+  },
+  payments: {
+    focus: 'eventpåmeldingsprogramvare Norge',
+    title: 'Eventpåmeldingsprogramvare Norge | Tappin Betalinger',
+    description: 'Eventpåmeldingsprogramvare Norge – merkebaserte eventsider, Vipps og faktura, EHF, gruppepåmelding, MVA. GDPR-først, driftet i Norge. Live på 7 dager.'
+  },
+  access: {
+    focus: 'eventinnsjekkingsprogramvare Norge',
+    title: 'Eventinnsjekkingsprogramvare Norge | QR Navnelapper Kiosker',
+    description: 'Eventinnsjekkingsprogramvare Norge – QR-skanning, navnelapper i sanntid, selvbetjente kiosker, offline-modus. 1,2-sekunders gj.snitt. Brukt på 500+ events.'
+  },
+  app: {
+    focus: 'merkebasert eventapp Norge',
+    title: 'Merkebasert Eventapp Norge | Tappin Eventapp-plattform',
+    description: 'Merkebasert eventapp Norge – agenda, nettverk, sesjoner, sponsorer, varsler. iOS, Android og web. Bygget for norske arrangementer. Ingen app-store-kø.'
+  },
+  interactivity: {
+    focus: 'eventengasjementsplattform Norge',
+    title: 'Eventengasjementsplattform Norge | Live Avstemninger Q&A',
+    description: 'Eventengasjementsplattform Norge – live-avstemninger, Q&A med opp-stemming, ordskyer, ledertavler, gamifiserte oppdrag. 62% gj.snittlig engasjement.'
+  },
+  stories: {
+    focus: 'eventadministrasjon-blogg Norge',
+    title: 'Eventadministrasjon-blogg Norge | Tappin Historier',
+    description: 'Eventadministrasjon-blogg Norge – rammeverk, kundehistorier og lærdom fra 500+ norske arrangementer. ROI, engasjement, planlegging, bransjetrender.'
+  },
+  blog: {
+    focus: 'eventengasjement Norge',
+    title: 'Eventengasjement Norge: Trenger du plattform? | Tappin',
+    description: 'Eventengasjement Norge har skiftet. Deltakerne dukker ikke opp for slidene lenger. Slik svarer norske eventledere – og plattformskiftet som kreves.'
+  },
+  privacy: {
+    focus: 'Tappin personvernerklæring',
+    title: 'Tappin Personvernerklæring | GDPR for Eventplattform Norge',
+    description: 'Tappin personvernerklæring – hvordan vi samler inn, bruker, lagrer og beskytter persondata på eventplattformen i Norge. GDPR-først. Driftet i Norge.'
+  },
+  gdpr: {
+    focus: 'GDPR eventplattform Norge',
+    title: 'GDPR Eventplattform Norge | Tappin GDPR-informasjon',
+    description: 'GDPR eventplattform Norge – hvordan Tappin AS oppfyller GDPR. Norsk hosting, DPA med hver kunde, rettigheter for registrerte, bruddprosedyrer, sikkerhet.'
+  },
+  dpa: {
+    focus: 'eventplattform DPA Norge',
+    title: 'Eventplattform DPA Norge | Tappin Databehandleravtale',
+    description: 'Eventplattform-DPA Norge – Tappin databehandleravtale, GDPR Artikkel 28-konform, driftet i Norge, signerbar. Be om PDF innen 24 timer.'
+  }
+};
+
 window.translations = {
   nb: {
     /* ---------- Announcement bar ---------- */
