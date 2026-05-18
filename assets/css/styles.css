@@ -3255,6 +3255,14 @@ body.cursor-down .cursor-ring {
   position: relative;
   overflow: hidden;
 }
+.post-cover-img.post-cover-img-photo {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--navy); /* fallback if image missing */
+}
+.post-cover-img.post-cover-img-photo::before,
+.post-cover-img.post-cover-img-photo::after { display: none; }
 .post-cover-img::before {
   content: '';
   position: absolute;

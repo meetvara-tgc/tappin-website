@@ -72,6 +72,11 @@ window.nbMeta = {
     title: 'Eventengasjement Norge: Trenger du plattform? | Tappin',
     description: 'Eventengasjement Norge har skiftet. Deltakerne dukker ikke opp for slidene lenger. Slik svarer norske eventledere – og plattformskiftet som kreves.'
   },
+  'event-planning': {
+    focus: 'Eventplanlegging Norge',
+    title: 'Eventplanlegging Norge: Vellykkede Fysiske Arrangementer',
+    description: 'Eventplanlegging Norge gjort enkelt – med strategier for venue-valg, deltakeropplevelse og sømløs gjennomføring av fysiske arrangementer.'
+  },
   privacy: {
     focus: 'Tappin personvernerklæring',
     title: 'Tappin Personvernerklæring | GDPR for Eventplattform Norge',
